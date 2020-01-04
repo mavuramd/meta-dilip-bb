@@ -15,7 +15,7 @@ KERNEL_DEVICETREE ?= " \
 LINUX_VERSION = "5.4"
 LINUX_VERSION_EXTENSION = "-mavuramd"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/linux-stable-systemd-${LINUX_VERSION}:"
 
 S = "${WORKDIR}/git"
 
