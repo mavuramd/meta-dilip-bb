@@ -13,7 +13,7 @@ KERNEL_DEVICETREE ?= " \
 "
 
 LINUX_VERSION = "5.4"
-LINUX_VERSION_EXTENSION = "-jumpnow"
+LINUX_VERSION_EXTENSION = "-mavuramd"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/linux-stable-${LINUX_VERSION}:"
 
