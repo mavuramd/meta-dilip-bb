@@ -1,5 +1,5 @@
-SUMMARY = "A console development image with some C/C++ dev tools"
-HOMEPAGE = "http://www.jumpnowtek.com"
+SUMMARY = "A Cutom development image"
+HOMEPAGE = "https://github.com/mavuramd"
 
 IMAGE_FEATURES += "package-management"
 IMAGE_LINGUAS = "en-us"
@@ -54,6 +54,10 @@ EXTRA_TOOLS_INSTALL = " \
     zip \
 "
 
+#INSTALL_MISC = " \
+#    network-config \
+#"
+
 IMAGE_INSTALL += " \
     ${CORE_OS} \
     ${EXTRA_TOOLS_INSTALL} \
@@ -68,10 +72,26 @@ disable_bootlogd() {
     echo BOOTLOGD_ENABLE=no > ${IMAGE_ROOTFS}/etc/default/bootlogd
 }
 
+enable_dhcp_eth0() {
+
+    mkdir -p ${IMAGE_ROOTFS}/etc/systemd/network/
+
+    touch ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+
+    echo "[Match]"   >> ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+    echo "Name=eth0" >> ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+    echo "  "        >> ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+    echo "[Network]" >> ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+    echo "DHCP=yes"  >> ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+
+    chmod 666 ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
+}
+
+
 ROOTFS_POSTPROCESS_COMMAND += " \
     set_local_timezone ; \
     disable_bootlogd ; \
+    enable_dhcp_eth0 ; \
 "
 
 export IMAGE_BASENAME = "custom-image"
-
