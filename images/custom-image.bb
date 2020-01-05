@@ -65,7 +65,7 @@ IMAGE_INSTALL += " \
 "
 
 set_local_timezone() {
-    ln -sf /usr/share/zoneinfo/EST5EDT ${IMAGE_ROOTFS}/etc/localtime
+    ln -sf /usr/share/zoneinfo/CET ${IMAGE_ROOTFS}/etc/localtime
 }
 
 disable_bootlogd() {
@@ -73,7 +73,6 @@ disable_bootlogd() {
 }
 
 enable_dhcp_eth0() {
-
     mkdir -p ${IMAGE_ROOTFS}/etc/systemd/network/
 
     touch ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
@@ -87,10 +86,12 @@ enable_dhcp_eth0() {
     chmod 666 ${IMAGE_ROOTFS}/etc/systemd/network/20-dynamic-eth0.network
 }
 
-
 ROOTFS_POSTPROCESS_COMMAND += " \
     set_local_timezone ; \
     disable_bootlogd ; \
+"
+
+ROOTFS_POSTPROCESS_COMMAND_beaglebone-systemd += " \
     enable_dhcp_eth0 ; \
 "
 
