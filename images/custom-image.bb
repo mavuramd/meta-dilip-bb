@@ -54,14 +54,15 @@ EXTRA_TOOLS_INSTALL = " \
     zip \
 "
 
-#INSTALL_MISC = " \
-#    network-config \
-#"
+INSTALL_MISC = " \
+    emmc-self-installer \
+"
 
 IMAGE_INSTALL += " \
     ${CORE_OS} \
     ${EXTRA_TOOLS_INSTALL} \
     ${KERNEL_EXTRA_INSTALL} \
+    ${INSTALL_MISC} \
 "
 
 set_local_timezone() {
