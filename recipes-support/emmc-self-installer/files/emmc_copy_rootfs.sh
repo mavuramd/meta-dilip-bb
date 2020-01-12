@@ -10,15 +10,7 @@
 
 MACHINE=beaglebone-systemd
 DEV=/dev/mmcblk1p2
-
-if [ -z "${SRCDIR}" ]; then
-    SRCDIR=.
-else
-    if [ ! -d "${SRCDIR}" ]; then
-            echo "Source directory not found: ${SRCDIR}"
-            exit 1
-    fi
-fi
+SRCDIR=/home/root/emmc
 
 if [ "x${1}" = "x" ]; then
     echo -e "\nUsage: ${0} <image-name> [<hostname>]\n"
