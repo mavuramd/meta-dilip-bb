@@ -96,4 +96,8 @@ ROOTFS_POSTPROCESS_COMMAND_beaglebone-systemd += " \
     enable_dhcp_eth0 ; \
 "
 
+ROOTFS_POSTPROCESS_COMMAND_beaglebone-yocto += " \
+    enable_dhcp_eth0 ; \
+"
+
 export IMAGE_BASENAME = "custom-image"
