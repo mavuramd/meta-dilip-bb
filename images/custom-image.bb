@@ -92,11 +92,11 @@ ROOTFS_POSTPROCESS_COMMAND += " \
     disable_bootlogd ; \
 "
 
-ROOTFS_POSTPROCESS_COMMAND_beaglebone-systemd += " \
+ROOTFS_POSTPROCESS_COMMAND_append_beaglebone-systemd += " \
     enable_dhcp_eth0 ; \
 "
 
-ROOTFS_POSTPROCESS_COMMAND_beaglebone-yocto += " \
+ROOTFS_POSTPROCESS_COMMAND_append_beaglebone-yocto += " \
     enable_dhcp_eth0 ; \
 "
 
