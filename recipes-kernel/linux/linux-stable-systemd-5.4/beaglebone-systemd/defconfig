@@ -3613,7 +3613,8 @@ CONFIG_SYNC_FILE=y
 # end of Microsoft Hyper-V guest support
 
 # CONFIG_GREYBUS is not set
-# CONFIG_STAGING is not set
+CONFIG_STAGING=y
+CONFIG_R8188EU=m
 # CONFIG_GOLDFISH is not set
 # CONFIG_MFD_CROS_EC is not set
 # CONFIG_CHROME_PLATFORMS is not set

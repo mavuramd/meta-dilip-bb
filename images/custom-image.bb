@@ -9,13 +9,11 @@ inherit image
 CORE_OS = " \
     openssh openssh-keygen openssh-sftp-server \
     packagegroup-core-boot \
-    term-prompt \
     tzdata \
 "
 
 KERNEL_EXTRA_INSTALL = " \
     kernel-modules \
-    load-modules \
 "
 
 EXTRA_TOOLS_INSTALL = " \
@@ -42,7 +40,6 @@ EXTRA_TOOLS_INSTALL = " \
     ntp ntp-tickadj \
     parted \
     procps \
-    rndaddtoentcnt \
     sysfsutils \
     tcpdump \
     tree \
@@ -58,11 +55,20 @@ INSTALL_MISC = " \
     emmc-self-installer \
 "
 
+WIFI = " \
+    bbgw-wireless \
+    crda \
+    iw \
+    linux-firmware-rtl8188 \
+    wpa-supplicant \
+"
+
 IMAGE_INSTALL += " \
     ${CORE_OS} \
     ${EXTRA_TOOLS_INSTALL} \
     ${KERNEL_EXTRA_INSTALL} \
     ${INSTALL_MISC} \
+    ${WIFI} \
 "
 
 set_local_timezone() {
